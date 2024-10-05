@@ -1,0 +1,14 @@
+{
+	"scripts": {
+		"compile:sass": "sass main.scss css/style.css -w"
+	},
+	"dependencies": {
+		"devserver": "^0.2.5",
+		"liveserver": "^0.1.20",
+		"sass": "^1.79.4"
+	},
+	"devDependencies": {
+		"live-server": "^1.2.2",
+		"npm-run-all": "^4.1.5"
+	}
+}
