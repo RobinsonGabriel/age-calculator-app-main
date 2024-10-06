@@ -1,16 +1,35 @@
+var regex = /^[a-zA-Z_!@#$%^&*()\s][^$]*$/;
+
 $(document).ready(function () {
+	let year;
+	let month;
+	let day;
 	$("#year").keypress(() => {
-		const year = Number($("#year").val());
-		console.log(typeof year);
+		year = $("#year").val();
+		if (year.match(regex)) {
+			$("#valid__year").css("visibility", "visible");
+		} else {
+			$("#valid__year").css("visibility", "hidden");
+		}
 	});
 	$("#month").keypress(() => {
-		const month = Number($("#month").val());
-		console.log(typeof month);
+		month = $("#month").val();
+		if (month.match(regex)) {
+			$("#valid__month").css("visibility", "visible");
+		} else {
+			$("#valid__month").css("visibility", "hidden");
+		}
 	});
 	$("#day").keypress(() => {
-		const day = Number($("#day").val());
-		console.log(typeof day);
+		day = $("#day").val();
+		if (day.match(regex)) {
+			$("#valid__day").css("visibility", "visible");
+		} else {
+			$("#valid__day").css("visibility", "hidden");
+		}
 	});
 });
 
-function validate() {}
+function year_validate() {}
+function month_validate() {}
+function day_validate() {}
