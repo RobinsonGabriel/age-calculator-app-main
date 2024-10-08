@@ -1,6 +1,6 @@
 var regex = /^[a-zA-Z_!@#$%^&*()\s]*$/; //Regex for invalid chars
 const months_30 = ["4", "6", "9", "11"];
-//const months_31 = ["1", "3", "5", "7", "8", "10", "12"];
+const months_31 = ["1", "3", "5", "7", "8", "10", "12"];
 
 $(document).ready(function () {
 	var year = 0;
@@ -58,13 +58,32 @@ function calc_diff(year = 0, month = 0, day = 0) {
 	let yearResult = currentYear - year;
 	var monthResult = currentMonth - month;
 	let dayResult = currentDay - day;
-	//TODO: handle day cases. How do we represent the remainder?
 
+	//Handeling negative cases
 	if (monthResult < 0) {
 		monthResult = monthResult + 12;
 	}
-	//Case 1: dayresult is positive
+
+	if (day > currentDay) {
+		dayResult = currentDay;
+	}
+
+	if (dayResult < 0) {
+		dayResult = Math.abs(dayResult);
+	}
+
 	//Case 2: dayresult is negative
+	/*switch (dayResult > 0) {
+		case months_30.includes(month):
+			dayResult = dayResult + 30;
+			break;
+		case months_31.includes(month):
+			dayResult = dayResult + 31;
+			break;
+		case month === "2":
+			dayResult = dayResult + 28;
+			break;
+	}*/
 	$("#result__year").text(yearResult);
 	$("#result__month").text(monthResult);
 	$("#result__day").text(dayResult);
